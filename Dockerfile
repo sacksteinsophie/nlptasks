@@ -10,9 +10,9 @@ ENV PYTHONUNBUFFERED True
 EXPOSE 8888
 EXPOSE 5000
 
-WORKDIR /adaptnlp-rest
+WORKDIR .
 
-COPY . /adaptnlp-rest
+COPY . ./
 
 RUN pip3 install -r requirements.txt
 
