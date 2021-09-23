@@ -5,7 +5,7 @@
 
 
 # Start Starlette Server
-uvicorn app.main:app --host $SERVER_HOST --port $SERVER_PORT 
+uvicorn main:app --host $SERVER_HOST --port $SERVER_PORT 
 
 # Bring back primary process
 #fg %1
