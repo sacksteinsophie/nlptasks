@@ -5,4 +5,4 @@ build:
 release:
     image: web
 run:
-    web: uvicorn app.main:app
+    web: uvicorn main:app
