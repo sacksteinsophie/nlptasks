@@ -6,7 +6,7 @@
 
 # Start Starlette Server
 #uvicorn main:app 
-gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+uvicorn app.main:app
 # Bring back primary process
 #fg %1
 
