@@ -1,8 +1,5 @@
 
 build:
-    docker:
-        web: Dockerfile
+    web: uvicorn main:app
 release:
-    image: web
-run:
     web: uvicorn main:app
