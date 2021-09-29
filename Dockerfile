@@ -1,12 +1,13 @@
 
-   
-FROM python:3.8.2-slim
+# Step 1: Use official lightweight Python image as base OS.
+FROM python:3.7-slim
 
-WORKDIR /app
-COPY . /app
+# Step 2. Copy local code to the container image.
 
-RUN apt-get update -y \
-    && apt-get install -y gcc libpq-dev \
-    && pip3 install -r requirements.txt --no-cache-dir
+COPY . ./
 
-CMD gunicorn main:api -c gunicorn_config.py
+# Step 3. Install production dependencies.
+RUN pip install -r requirements.txt
+
+# Step 4: Run the web service on container startup using gunicorn webserver.
+CMD exec gunicorn --bind :$PORT --workers 1 --worker-class uvicorn.workers.UvicornWorker  --threads 8 main:app
